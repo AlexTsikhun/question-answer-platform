@@ -230,3 +230,25 @@ body {
   background-color: #cc002a; /* Darker shade on hover */
   transform: translateY(-2px); /* Lifts button slightly on hover */
 }
+
+/* Styling for the delete button */
+#deleteButton {
+  position: fixed;
+  left: 20px; /* Adjust left position to move button to the left */
+  top: 40%; /* Adjust top position as needed */
+  z-index: 100; /* Ensure button appears above other content */
+  background-color: #bd081c; /* Pinterest red */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 24px; /* Rounder corners */
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#deleteButton:hover {
+  background-color: #a1081a; /* Darker shade on hover */
+  transform: translateY(-2px); /* Lifts button slightly on hover */
+}
