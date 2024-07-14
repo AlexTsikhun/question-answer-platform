@@ -316,4 +316,51 @@ document.addEventListener("DOMContentLoaded", function () {
     switchDatabaseAndRender("Django DRF", 1);
   });
 
+  // !!!
+  const exportDataBtn = document.getElementById("exportDataBtn");
+
+  exportDataBtn.addEventListener("click", function () {
+    // Get all QA entries from the container
+    const qaEntries = qaContainer.querySelectorAll(".qa-table");
+
+    if (qaEntries.length === 0) {
+      alert("No data to export.");
+      return;
+    }
+
+    // Prepare data to export
+    const exportedData = [];
+
+    qaEntries.forEach((qaEntry, index) => {
+      const id = index + 1; // Numeration starts from 1
+      const topic = qaEntry.querySelector(".topic-cell").textContent.trim();
+      const keywords = qaEntry
+        .querySelector(".keywords-cell")
+        .textContent.trim();
+      const answer = qaEntry.querySelector(".qa-answer div").textContent.trim();
+
+      // Format the data as needed (e.g., CSV format)
+      const rowData = `${id},${topic},${keywords},${answer}`;
+      exportedData.push(rowData);
+    });
+
+    // Add headers
+    exportedData.unshift("id,topic,keywords,answer");
+
+    // Download the data as a file
+    downloadCSV(exportedData.join("\n"), "exported_data.csv");
+  });
+
+  // Function to download data as CSV file
+  function downloadCSV(csvData, fileName) {
+    const blob = new Blob([csvData], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
 });
