@@ -298,20 +298,25 @@ document.addEventListener("DOMContentLoaded", function () {
       const transaction = db.transaction(["questions"], "readwrite");
       const objectStore = transaction.objectStore("questions");
 
-      const deleteRequest = objectStore.clear();
+      // Show confirmation dialog before proceeding
+      if (confirm("Are you sure you want to delete all data?")) {
+        const deleteRequest = objectStore.clear();
 
-      deleteRequest.onsuccess = function (event) {
-        // can use renderQuestions here
-        console.log("All data deleted successfully.");
-      };
+        deleteRequest.onsuccess = function (event) {
+          // can use renderQuestions here
+          console.log("All data deleted successfully.");
+        };
 
-      deleteRequest.onerror = function (event) {
-        console.error("Error deleting data:", event.target.errorCode);
-      };
+        deleteRequest.onerror = function (event) {
+          console.error("Error deleting data:", event.target.errorCode);
+        };
 
-      transaction.oncomplete = function () {
-      renderQuestions();
-      };
+        transaction.oncomplete = function () {
+          renderQuestions();
+        };
+      } else {
+        console.log("Deletion canceled by user.");
+      }
     };
 
     request.onerror = function (event) {
