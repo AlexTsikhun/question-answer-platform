@@ -1,0 +1,169 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.main-container {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%;
+/*       background-color: #ffffff; */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 1px 0;
+      text-align: center;
+      z-index: 1000;
+    }
+.header h1 {
+  margin: 0; /* Remove margin around header text */
+}
+    .db-buttons {
+      margin-top: 0px; /* Space between header and buttons */
+      text-align: center;
+    }
+
+    .db-buttons button {
+      margin: 5px;
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .db-buttons button:hover {
+      background-color: #27ae60;
+    }
+
+
+.qa-container {
+        margin-top: 85px; /* Ensure content starts below the fixed header */
+
+  flex: 1; /* Allows the container to stretch and fill available space */
+  max-width: 700px; /* Limit the maximum width of the container */
+  margin-left: auto; /* Center the container horizontally */
+  margin-right: 540px; /* Space for the fixed form on the right */
+}
+
+.qa-table {
+  border: 1px solid #e1e1e1;
+  margin-bottom: 10px;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.qa-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.topic-cell, .keywords-cell {
+  flex-basis: 50%;
+}
+
+.qa-answer {
+  padding: 15px;
+  display: none;
+  background-color: #ffe0b2;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.visible .qa-answer {
+  display: block;
+}
+
+.qa-form {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 420px;
+  height: 560px;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+
+       margin-right: 20px;
+    border-right-width: 5px;*/
+}
+.qa-form h2 {
+  margin-top: 0;
+  font-size: 20px; /* Increase font size for better readability */
+  color: #333;
+}
+
+.qa-form input, .qa-form textarea, .qa-form button {
+  width: calc(100% - 20px); /* Full width minus padding for consistent indentation */
+  margin-bottom: 15px; /* Increase bottom margin */
+  border-radius: 8px;
+  border: 1px solid #e1e1e1;
+}
+
+.qa-form input, .qa-form textarea {
+  padding: 12px; /* Increase padding for better usability */
+  font-size: 16px; /* Increase font size for better readability */
+}
+
+.qa-form textarea {
+  height: 275px; /* Increase height of the Answer field */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+    flex: 1; /* Distribute space evenly */
+
+}
+
+.form-buttons button {
+  padding: 12px; /* Increase padding for a better button */
+  font-size: 16px; /* Increase font size */
+}
+
+#clearButton {
+  background-color: #e0e0e0; /* Light grey background for the Clear button */
+  color: #333;
+  border: 1px solid #ccc;
+    margin-left: 10px; /* Add margin to separate from Save button */
+
+}
+
+#clearButton:hover {
+  background-color: #bdbdbd; /* Darker grey on hover */
+}
+
+.qa-form button {
+  background-color: #007BFF; /* Primary color for the Save button */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+      flex: 1; /* Distribute space evenly */
+
+}
+
+.qa-form button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}

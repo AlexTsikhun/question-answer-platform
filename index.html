@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question-Answer Table</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="header">
+      <h1 id="dbNameHeader">Python Core</h1>
+      <div class="db-buttons">
+        <button id="showDb1Button">Python Core</button>
+        <button id="showDb2Button">DB</button>
+        <button id="showDb3Button">DJANGO/DRF</button>
+      </div>
+    </div>
+
+
+    <div id="qaContainer" class="qa-container">
+      <!-- QA entries will be loaded here -->
+    </div>
+
+    <form id="addQuestionForm" class="qa-form">
+      <input type="hidden" id="editId"> <!-- Hidden field for the record ID -->
+      <h2>Add/Edit Question</h2>
+      <input type="text" id="topic" placeholder="Topic" required>
+      <input type="text" id="keywords" placeholder="Keywords" required>
+      <textarea id="answer" placeholder="Answer" required></textarea>
+      <div class="form-buttons">
+        <button type="submit">Save</button>
+        <button type="button" id="clearButton">Clear All</button>
+      </div>
+    </form>
+    <div id="fileUploadContainer" class="file-upload-container">
+      <input type="file" id="fileInput" accept=".csv">
+      <button id="processFileBtn">Process File</button>
+    </div>
+    <!-- !! -->
+    <button id="exportDataBtn">Export Data</button>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+</body>
+
+</html>
