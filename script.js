@@ -363,4 +363,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }
+
+  // Function to delete all content from qaContainer
+  function deleteAllContent() {
+    var container = document.getElementById("qaContainer");
+    // Remove all child elements from qaContainer
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+  }
 });
