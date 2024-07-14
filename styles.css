@@ -17,8 +17,8 @@ body {
       position: fixed;
       top: 0;
       left: 0;
-      width: 50%;
-/*       background-color: #ffffff; */
+      width: 100%;
+      background-color: #ffffff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       padding: 1px 0;
       text-align: center;
@@ -52,10 +52,10 @@ body {
 .qa-container {
         margin-top: 85px; /* Ensure content starts below the fixed header */
 
-  flex: 1; /* Allows the container to stretch and fill available space */
+  flex: 1; /*Allows the container to stretch and fill available space*/
   max-width: 700px; /* Limit the maximum width of the container */
-  margin-left: auto; /* Center the container horizontally */
-  margin-right: 540px; /* Space for the fixed form on the right */
+  margin-left: 300px; /* in order not to overlap left btns */
+  /* margin-right: 540px; Space for the fixed form on the right */
 }
 
 .qa-table {
@@ -106,8 +106,9 @@ body {
   box-sizing: border-box;
 
        margin-right: 20px;
-    border-right-width: 5px;*/
+    border-right-width: 5px;
 }
+
 .qa-form h2 {
   margin-top: 0;
   font-size: 20px; /* Increase font size for better readability */
@@ -167,3 +168,43 @@ body {
 .qa-form button:hover {
   background-color: #0056b3; /* Darker shade on hover */
 }
+
+/* Styling for file upload container */
+.file-upload-container {
+  position: fixed;
+  left: 20px; /* Adjust left position to move container to the left */
+  top: 20%; /* Adjust top position as needed */
+  z-index: 100; /* Ensure container appears above other content */
+  background-color: #fff; /* White background */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+.file-upload-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+/* Styling for file input */
+#fileInput {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Styling for process file button */
+#processFileBtn {
+  background-color: #007BFF; /* Pinterest blue */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 24px; /* Rounded corners */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#processFileBtn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
