@@ -389,8 +389,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add headers
     exportedData.unshift("id,topic,keywords,answer");
 
+    const fileName = `${currentDbName}_exported_data.csv`;
+
     // Download the data as a file
-    downloadCSV(exportedData.join("\n"), "exported_data.csv");
+    downloadCSV(exportedData.join("\n"), fileName);
   });
 
   // Function to download data as CSV file
