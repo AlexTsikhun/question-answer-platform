@@ -57,10 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       data.forEach(function (row) {
         const newQuestion = {
-          topic: row.topic,
-          keywords: row.keywords,
+          topic: row.topic || '', // if some cell is null - replace with empty string
+          keywords: row.keywords || '',
 
-          answer: row.answer,
+          answer: row.answer || '',
         };
         store.add(newQuestion);
       });
