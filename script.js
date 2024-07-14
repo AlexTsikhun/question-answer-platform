@@ -6,8 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const fileInput = document.getElementById("fileInput");
   const processFileBtn = document.getElementById("processFileBtn");
-
   processFileBtn.addEventListener("click", handleProcessFile);
+
+  var deleteButton = document.getElementById("deleteButton");
+  deleteButton.addEventListener("click", function () {
+    deleteAllData(currentDbName);
+  });
 
   function handleProcessFile() {
     const file = fileInput.files[0];
@@ -285,6 +289,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Function to delete all data from the 'questions' object store
+  function deleteAllData(dbName) {
+    const request = indexedDB.open(dbName);
+
+    request.onsuccess = function (event) {
+      const db = event.target.result;
+      const transaction = db.transaction(["questions"], "readwrite");
+      const objectStore = transaction.objectStore("questions");
+
+      const deleteRequest = objectStore.clear();
+
+      deleteRequest.onsuccess = function (event) {
+        // can use renderQuestions here
+        console.log("All data deleted successfully.");
+      };
+
+      deleteRequest.onerror = function (event) {
+        console.error("Error deleting data:", event.target.errorCode);
+      };
+
+      transaction.oncomplete = function () {
+      renderQuestions();
+      };
+    };
+
+    request.onerror = function (event) {
+      console.error(
+        `Error opening database ${dbName}:`,
+        event.target.errorCode
+      );
+    };
+  }
+
   // Function to update header text
   function updateHeader(dbName) {
     dbNameHeader.textContent = dbName; // Update header with database name
@@ -363,5 +400,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }
-
 });
